@@ -7,6 +7,6 @@ import Data.Aeson
 
 
 application _ = return $
-  responseLBS status200 [("Content-Type", "text/plain")] "Hello World"
+  responseLBS status200 [("Content-Type", "text/plain")] "Hello World people"
 
 main = run 3000 application

@@ -5,6 +5,10 @@ import Persist.Mongo.Settings
 import Database.Persist
 import GHC.Generics
 import Data.Aeson
+import Data.Graph.Inductive.Graph
+
+
+
 
 import Prelude hiding (head, init, last
                       ,readFile, tail, writeFile)
@@ -12,6 +16,8 @@ import Prelude hiding (head, init, last
 
 data PermissionEntity a b = PEuser {getPEuser::a} | PEgroup {getPEgroup::b} |Empty
     deriving (Show,Eq,Read,Generic)
+
+
 
 
 
@@ -33,3 +39,6 @@ permissionUsers :: [PermissionEntity a b] -> [PermissionEntity a b]
 permissionUsers = filter chk 
     where chk (PEuser _) = True
           chk (_) = False
+
+
+type OPNode = LNode OnPingPermissionEntity

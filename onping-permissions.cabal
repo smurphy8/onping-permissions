@@ -13,7 +13,11 @@ Library
   Default-Language:     Haskell2010
   HS-Source-Dirs:       src
   GHC-Options:          -Wall
-  Exposed-Modules:      Permissions.Onping
+  Exposed-Modules:      Permissions.Onping      
+                        Permissions.Onping.Types
+                        Permissions.Onping.Interface
+                        Permissions.Onping.Graph
+                        
   Other-Modules:        Permissions.Onping.Internal
   Build-Depends:        base >= 4 && < 5
 
@@ -27,6 +31,7 @@ Library
                        ,containers
                        ,warp
                        ,http-types
+                       ,yaml
                        ,wai
 
   
@@ -39,6 +44,19 @@ Test-Suite spec
   Main-Is:              Spec.hs
   Build-Depends:        base
                       , hspec
+                      , persist-mongo-template >= 0.2.5
+                       ,graphviz               >= 2999.16.0.0    
+                       ,aeson
+                       ,persistent
+                       ,text
+                       ,pretty                  
+                       ,fgl 
+                       ,yaml                    
+                       ,containers
+                       ,warp
+                       ,http-types
+                       ,wai
+
 
 Source-Repository head
   Type:                 git

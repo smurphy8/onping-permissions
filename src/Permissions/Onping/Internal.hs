@@ -1,5 +1,6 @@
 module Permissions.Onping.Internal
     (
+getSuperUserList
     ) where
 
 import Control.Applicative
@@ -8,14 +9,14 @@ import Database.Persist
 import Permissions.Onping.Types
 import qualified Data.Text as T
 import qualified Data.List as L
-
+-- import qualified Data.Yaml as Y
 
 
 
 -- | filterSuperUserList is extracted from Onping, modified to return the SuperUser Tree of any user
 
 getSuperUserList :: UserId -> IO  [OnPingPermissionEntity]
-getSuperUserList uid = do
+getSuperUserList uid = do  
   aidG <- runDB $ do 
     l <- selectList [] [] 
     return $ l
